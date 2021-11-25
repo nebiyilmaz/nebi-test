@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  dft-application-api-fake-server:
+    container_name: dft-application-api-fake-server
+    build: ./fake_server
+    ports:
+      - "0:8080"
+
+networks:
+  default:
+    external:
+      name: dft-application-api-net
+
+
+

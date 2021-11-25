@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "merchant_comment": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "data_raw": {
+          "type": ["array", "object"]
+        },
+        "product_data": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "merchant_reference": {
+          "type": "string"
+        }
+      },
+      "required": [
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "default": "REQUESTED"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "product_data": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "reference": {
+          "type": "string",
+          "default": "",
+          "example": "A_REFERENCE"
+        },
+        "comment": {
+          "type": "string",
+          "default": "",
+          "example": "A_COMMENT"
+        }
+      },
+      "required": [
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

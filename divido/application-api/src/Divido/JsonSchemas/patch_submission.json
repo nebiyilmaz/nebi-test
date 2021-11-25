@@ -1,0 +1,62 @@
+{
+  "title" : "Path of application submission",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "order": {
+          "type": "integer"
+        },
+        "decline_referred": {
+          "type": "boolean",
+          "default": false
+        },
+        "application_alternative_offer_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "merchant_finance_plan_id": {
+          "type": "string",
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACCEPTED",
+            "AWAITING-DECISION",
+            "DECLINED",
+            "UNSUBMITTED",
+            "SUBMITTING",
+            "ERROR",
+            "REFERRED",
+            "SIGNED",
+            "FRAUD",
+            "ACTIVATED",
+            "REFUNDED",
+            "CANCELLED",
+            "READY"
+          ]
+        },
+        "lender_reference": {
+          "type": "string"
+        },
+        "lender_loan_reference": {
+          "type": "string"
+        },
+        "lender_status": {
+          "type": "string"
+        },
+        "lender_data": {
+          "$ref" : "lender_data.json"
+        }
+      }
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

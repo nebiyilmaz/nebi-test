@@ -1,0 +1,18 @@
+{
+	"amqp_options": {
+		"host": "divido-environment-rabbit",
+		"port": 5672,
+		"username": "dev",
+		"password": "dev",
+		"consumer_tag": "",
+		"virtual_host": "/dev",
+		"queue": "application-api.rpc.queue",
+		"exchange": "application-api-exchange",
+		"routing_key": "application-api.rpc.key"
+	},
+	"log_channel_name": "application-api",
+	"php": {
+		"console_path": "/opt/divido/app/console.php"
+	},
+	"max_workers": 5
+}

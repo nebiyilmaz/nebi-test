@@ -1,0 +1,2186 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Application API",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "https://application-api.api.dev.divido.net"
+        },
+        {
+            "url": "http://application-api.api.test.platform.internal"
+        },
+        {
+            "url": "http://application-api.api.stag.platform.internal"
+        }
+    ],
+    "paths": {
+        "/activations/{activation}": {
+            "get": {
+                "tags": [
+                    "Activation"
+                ],
+                "description": "Gets an activation",
+                "operationId": "Divido\\Routing\\Activation\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "activation",
+                        "in": "path",
+                        "description": "The activation id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An activation"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Activation"
+                ],
+                "description": "Updates a activation",
+                "operationId": "Divido\\Routing\\Activation\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "activation",
+                        "in": "path",
+                        "description": "The activation",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Activation",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_activation.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/activations": {
+            "get": {
+                "tags": [
+                    "Activation"
+                ],
+                "description": "Gets all activations for an application",
+                "operationId": "Divido\\Routing\\Activation\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of activations"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Activation"
+                ],
+                "description": "Creates a new activation",
+                "operationId": "Divido\\Routing\\Activation\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Activation",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_activation.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/alternative-offers/{alternative-offer}": {
+            "get": {
+                "tags": [
+                    "Alternative Offer"
+                ],
+                "description": "Gets an alternative offer",
+                "operationId": "Divido\\Routing\\AlternativeOffer\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "alternative-offer",
+                        "in": "path",
+                        "description": "The alternative offer id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0a9dcc30-f0f8-4e73-ab55-c2f37a480a4a"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An alternative offer"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/alternative-offers": {
+            "get": {
+                "tags": [
+                    "Alternative Offer"
+                ],
+                "description": "Gets all alternative offers for an application",
+                "operationId": "Divido\\Routing\\AlternativeOffer\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of alternative offers"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Alternative Offer"
+                ],
+                "description": "Creates a new alternative offer",
+                "operationId": "Divido\\Routing\\AlternativeOffer\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Alternative Offer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_alternative_offer.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/alternative-offers/{alternativeOffer}": {
+            "patch": {
+                "tags": [
+                    "Alternative Offer"
+                ],
+                "description": "Updates an alternative offer",
+                "operationId": "Divido\\Routing\\AlternativeOffer\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "alternativeOffer",
+                        "in": "path",
+                        "description": "The alternative offer",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Alternative Offer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_alternative_offer.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applicants/{token}": {
+            "get": {
+                "tags": [
+                    "Applicant"
+                ],
+                "description": "Gets an applicant",
+                "operationId": "Divido\\Routing\\Applicant\\GetRoutes::applicants",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "The token of the application",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "34f2b12a3b8abb9d3fb45a8e089f8fba"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An applicant (or array of applicants)"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Applicant"
+                ],
+                "description": "Updates an applicant",
+                "operationId": "Divido\\Routing\\Applicant\\PatchRoutes::applicants",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "The token of the application",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "34f2b12a3b8abb9d3fb45a8e089f8fba"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Application",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_applicants.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "An applicant (or array of applicants)"
+                    }
+                }
+            }
+        },
+        "/form-data/{token}": {
+            "get": {
+                "tags": [
+                    "Form Data"
+                ],
+                "description": "Gets form data from application",
+                "operationId": "Divido\\Routing\\Applicant\\GetRoutes::formData",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "The token of the application",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "34f2b12a3b8abb9d3fb45a8e089f8fba"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The form data for an application"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Form Data"
+                ],
+                "description": "Updates an applicant",
+                "operationId": "Divido\\Routing\\Applicant\\PatchRoutes::formData",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "The token of the application",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "34f2b12a3b8abb9d3fb45a8e089f8fba"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Application",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_form_data.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The form data for an application"
+                    }
+                }
+            }
+        },
+        "/applications/{application}": {
+            "get": {
+                "tags": [
+                    "Application"
+                ],
+                "description": "Gets an application",
+                "operationId": "Divido\\Routing\\Application\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An application"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Application"
+                ],
+                "description": "Deletes a application",
+                "operationId": "Divido\\Routing\\Application\\DeleteRoutes::delete",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application being deleted",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Application"
+                ],
+                "description": "Updates a application",
+                "operationId": "Divido\\Routing\\Application\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Application",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_application.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications": {
+            "get": {
+                "tags": [
+                    "Application"
+                ],
+                "description": "Gets all applications",
+                "operationId": "Divido\\Routing\\Application\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of applications"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Application"
+                ],
+                "description": "Creates a new application",
+                "operationId": "Divido\\Routing\\Application\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Application",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_application.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/cancellations/{cancellation}": {
+            "get": {
+                "tags": [
+                    "Cancellation"
+                ],
+                "description": "Gets a cancellation",
+                "operationId": "Divido\\Routing\\Cancellation\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "cancellation",
+                        "in": "path",
+                        "description": "The cancellation id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A cancellation"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Cancellation"
+                ],
+                "description": "Updates a cancellation",
+                "operationId": "Divido\\Routing\\Cancellation\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "cancellation",
+                        "in": "path",
+                        "description": "The cancellation",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Cancellation",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_cancellation.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/cancellations": {
+            "get": {
+                "tags": [
+                    "Cancellation"
+                ],
+                "description": "Gets all cancellations for an application",
+                "operationId": "Divido\\Routing\\Cancellation\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of cancellations"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cancellation"
+                ],
+                "description": "Creates a new cancellation",
+                "operationId": "Divido\\Routing\\Cancellation\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Cancellation",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_cancellation.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/deposits/{deposit}": {
+            "get": {
+                "tags": [
+                    "Deposit"
+                ],
+                "description": "Gets a deposit",
+                "operationId": "Divido\\Routing\\Deposit\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "deposit",
+                        "in": "path",
+                        "description": "The deposit id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A deposit"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Deposit"
+                ],
+                "description": "Updates a deposit",
+                "operationId": "Divido\\Routing\\Deposit\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "deposit",
+                        "in": "path",
+                        "description": "The deposit",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Deposit",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_deposit.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/deposits": {
+            "get": {
+                "tags": [
+                    "Deposit"
+                ],
+                "description": "Gets all deposits for an application",
+                "operationId": "Divido\\Routing\\Deposit\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of deposits"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Deposit"
+                ],
+                "description": "Creates a new deposit",
+                "operationId": "Divido\\Routing\\Deposit\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Deposit",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_deposit.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/event": {
+            "post": {
+                "tags": [
+                    "Event"
+                ],
+                "description": "Actions the event",
+                "operationId": "Divido\\Routing\\Event\\PostRoutes::newEvent",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Event",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_action.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/form-configuration/{token}": {
+            "get": {
+                "tags": [
+                    "Form Configuration"
+                ],
+                "description": "",
+                "operationId": "Divido\\Routing\\FormConfiguration\\GetRoutes::render",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "The token id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "34f2b12a3b8abb9d3fb45a8e089f8fba"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/form-configuration": {
+            "get": {
+                "tags": [
+                    "Form Configuration"
+                ],
+                "operationId": "Divido\\Routing\\FormConfiguration\\GetRoutes::index",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/form-data-to-applicants": {
+            "post": {
+                "tags": [
+                    "Form Data To Applicants"
+                ],
+                "description": "Transforms form data to applicants",
+                "operationId": "Divido\\Routing\\FormDataToApplicants\\PostRoutes::convert",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Form Data To Applicants",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_form_data_to_applicants.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/histories/{history}": {
+            "get": {
+                "tags": [
+                    "History"
+                ],
+                "description": "Gets a history",
+                "operationId": "Divido\\Routing\\History\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "history",
+                        "in": "path",
+                        "description": "The history id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A history"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "History"
+                ],
+                "description": "Updates a history",
+                "operationId": "Divido\\Routing\\History\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "history",
+                        "in": "path",
+                        "description": "The history",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "History",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_history.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/histories": {
+            "get": {
+                "tags": [
+                    "History"
+                ],
+                "description": "Gets all histories for an application",
+                "operationId": "Divido\\Routing\\History\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of histories"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/comments": {
+            "post": {
+                "tags": [
+                    "History"
+                ],
+                "description": "Creates a new comment",
+                "operationId": "Divido\\Routing\\History\\PostRoutes::createComment",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "History Comment",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_application_comment.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/statuses": {
+            "post": {
+                "tags": [
+                    "History"
+                ],
+                "description": "Creates a new status",
+                "operationId": "Divido\\Routing\\History\\PostRoutes::createStatus",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "History Status",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_status.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/call/{applicationSubmissionId}/{callName}": {
+            "get": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Gets a lender call",
+                "operationId": "Divido\\Routing\\LenderCall\\GetRoutes::call",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    },
+                    {
+                        "name": "callName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A lender call"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Updates the custom call to lender communication",
+                "operationId": "Divido\\Routing\\LenderCall\\PutRoutes::call",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    },
+                    {
+                        "name": "callName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Lender Call",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Creates a new lender call",
+                "operationId": "Divido\\Routing\\LenderCall\\PostRoutes::call",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    },
+                    {
+                        "name": "callName",
+                        "in": "path",
+                        "description": "The call name",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Lender Call",
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Deletes a lender call",
+                "operationId": "Divido\\Routing\\LenderCall\\DeleteRoutes::call",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    },
+                    {
+                        "name": "callName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Updates the custom call to lender communication",
+                "operationId": "Divido\\Routing\\LenderCall\\PatchRoutes::call",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    },
+                    {
+                        "name": "callName",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Lender Call",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/query/{applicationSubmissionId}": {
+            "get": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Queries the lender communication",
+                "operationId": "Divido\\Routing\\LenderCall\\GetRoutes::query",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/notification/{applicationSubmissionId}": {
+            "post": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Notifies the lender",
+                "operationId": "Divido\\Routing\\LenderCall\\PostRoutes::notification",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "applicationSubmissionId",
+                        "in": "path",
+                        "description": "The application submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Lender Call",
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/submit/{token}": {
+            "post": {
+                "tags": [
+                    "Lender Call"
+                ],
+                "description": "Submits to the lender",
+                "operationId": "Divido\\Routing\\LenderCall\\PostRoutes::submit",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "token",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "34f2b12a3b8abb9d3fb45a8e089f8fba"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Lender Call",
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/refunds/{refund}": {
+            "get": {
+                "tags": [
+                    "Refund"
+                ],
+                "description": "Gets an refund",
+                "operationId": "Divido\\Routing\\Refund\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "refund",
+                        "in": "path",
+                        "description": "The refund id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A refund"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Refund"
+                ],
+                "description": "Updates a refund",
+                "operationId": "Divido\\Routing\\Refund\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "refund",
+                        "in": "path",
+                        "description": "The refund",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Refund",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_refund.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/refunds": {
+            "get": {
+                "tags": [
+                    "Refund"
+                ],
+                "description": "Gets all refunds for an application",
+                "operationId": "Divido\\Routing\\Refund\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of refunds"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Refund"
+                ],
+                "description": "Creates a new refund",
+                "operationId": "Divido\\Routing\\Refund\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Refund",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_refund.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/signatories/{signatory}": {
+            "get": {
+                "tags": [
+                    "Signatory"
+                ],
+                "description": "Gets a signatory",
+                "operationId": "Divido\\Routing\\Signatory\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "signatory",
+                        "in": "path",
+                        "description": "The signatory id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A signatory"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Signatory"
+                ],
+                "description": "Updates a signatory",
+                "operationId": "Divido\\Routing\\Signatory\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "signatory",
+                        "in": "path",
+                        "description": "The signatory",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Signatory",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_signatory.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/signatories": {
+            "get": {
+                "tags": [
+                    "Signatory"
+                ],
+                "description": "Gets all signatories for an application",
+                "operationId": "Divido\\Routing\\Signatory\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of signatories"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Signatory"
+                ],
+                "description": "Creates a new signatory",
+                "operationId": "Divido\\Routing\\Signatory\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Signatory",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_signatory.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/submissions/{submission}": {
+            "get": {
+                "tags": [
+                    "Submission"
+                ],
+                "description": "Gets a submission",
+                "operationId": "Divido\\Routing\\Submission\\GetRoutes::getOne",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "submission",
+                        "in": "path",
+                        "description": "The submission id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A submission"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Submission"
+                ],
+                "description": "Updates a submission",
+                "operationId": "Divido\\Routing\\Submission\\PatchRoutes::patch",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "submission",
+                        "in": "path",
+                        "description": "The submission",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "001e31c4-a1d8-421c-a46e-6ffec02f5384"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Submission",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/patch_submission.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        },
+        "/applications/{application}/submissions": {
+            "get": {
+                "tags": [
+                    "Submission"
+                ],
+                "description": "Gets all submissions for an application",
+                "operationId": "Divido\\Routing\\Submission\\GetRoutes::getAll",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of submissions"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Submission"
+                ],
+                "description": "Creates a new submission",
+                "operationId": "Divido\\Routing\\Submission\\PostRoutes::create",
+                "parameters": [
+                    {
+                        "name": "x-divido-tenant-id",
+                        "in": "header",
+                        "description": "The tenant",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "divido"
+                        }
+                    },
+                    {
+                        "name": "application",
+                        "in": "path",
+                        "description": "The application id",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "0004f028-a485-11e9-800d-0242ac110009"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "Submission",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "./src/Divido/JsonSchemas/post_submission.json"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Ok"
+                    }
+                }
+            }
+        }
+    }
+}

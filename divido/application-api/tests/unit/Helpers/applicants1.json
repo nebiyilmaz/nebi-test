@@ -1,0 +1,60 @@
+{
+  "value": [
+    {
+      "value": {
+        "personal_details": {
+          "value": {
+            "first_name": {
+              "value": "Ann"
+            },
+            "last_name": {
+              "value": "Heselden"
+            },
+            "gender": {
+              "value": "female"
+            },
+            "date_of_birth": {
+              "value": "1990-01-01"
+            }
+          }
+        },
+        "contact_details": {
+          "value": {
+            "addresses": {
+              "value": [
+                {
+                  "value": {
+                    "postcode": {
+                      "value": "AAA BBB"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "living_arrangements": {
+          "value": {
+            "occupancy_status": {
+              "value": "living_with_parents"
+            }
+          }
+        },
+        "employment_details": {
+          "value": [
+            {
+              "value": {
+                "employment_status": {
+                  "value": "unemployed"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "metadata": {
+        "uuid": "e5110990-741f-4fe7-9466-69dc919eedd2"
+      }
+    }
+  ]
+}

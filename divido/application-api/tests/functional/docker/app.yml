@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  dft-application-api-app:
+    container_name: dft-application-api-app
+    build: ./app
+    privileged: true
+    volumes:
+      - ../../../:/opt/divido/app
+    environment:
+      - DIVIDO_APPLICATION_ENVIRONMENT=functional
+      - AWS_ACCESS_KEY_ID=access_key
+      - AWS_SECRET_ACCESS_KEY=secret_key
+      - AWS_REGION=eu-west-1
+    external_links:
+      - dft-application-api-db
+      - dft-application-api-platform-db
+    ports:
+      - 0:80
+
+networks:
+  default:
+    external:
+      name: dft-application-api-net
+
+
+

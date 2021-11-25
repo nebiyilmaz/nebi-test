@@ -1,0 +1,26 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string",
+          "example": "A_COMMENT"
+        }
+      },
+      "required": [
+
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

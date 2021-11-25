@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "email_address": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string"
+        },
+        "lender_reference": {
+          "type": "string"
+        },
+        "hosted_signing": {
+          "type": "boolean"
+        },
+        "data_raw": {
+          "type": "object"
+        }
+      },
+      "required": [
+
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

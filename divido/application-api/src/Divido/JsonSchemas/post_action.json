@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "string",
+          "enum": [
+            "submission",
+            "cancellation",
+            "activation",
+            "refund",
+            "deposit"
+          ]
+        },
+        "data": {
+          "type": "object",
+          "default": {}
+        }
+      },
+      "required": [
+        "event"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

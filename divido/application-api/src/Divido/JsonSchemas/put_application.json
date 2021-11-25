@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "application_submission_id": {
+          "type": "string",
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "merchant_finance_option_id": {
+          "type": "string",
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "finalised": {
+          "type": "boolean"
+        },
+        "purchase_price": {
+          "type": "integer"
+        },
+        "deposit_amount": {
+          "type": "integer",
+          "default": 0
+        },
+        "deposit_status": {
+          "type": "string",
+          "enum": [
+            "PAID-BY-CARD",
+            "PAID",
+            "NO-DEPOSIT",
+            "UNPAID",
+            "UNPAID-COLLECT-MANUALLY"
+          ],
+          "default": "UNPAID"
+        },
+        "form_data": {
+          "type": "object"
+        },
+        "applicants": {
+          "type": "object"
+        },
+        "product_data": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "default": []
+        },
+        "metadata": {
+          "type": "object",
+          "default": {}
+        },
+        "merchant_reference": {
+          "type": "string",
+          "default": ""
+        },
+        "merchant_response_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "merchant_checkout_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "merchant_redirect_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "available_finance_options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "0004f028-a485-11e9-800d-0242ac110009",
+            "0004f028-a485-11e9-800d-0242ac110009"
+          ]
+        }
+      },
+      "required": [
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

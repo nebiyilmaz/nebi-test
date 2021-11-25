@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "default": "PENDING"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "merchant_comment": {
+          "type": "string",
+          "default": ""
+        },
+        "type": {
+          "type": "string",
+          "default": "cash"
+        },
+        "reference": {
+          "type": "string",
+          "default": "",
+          "example": "A_REFERENCE"
+        },
+        "data_raw": {
+          "type": ["object"],
+          "default": {}
+        },
+        "product_data": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "default": []
+        },
+        "merchant_reference": {
+          "type": "string",
+          "default": ""
+        }
+      },
+      "required": [
+        "merchant_reference",
+        "amount"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

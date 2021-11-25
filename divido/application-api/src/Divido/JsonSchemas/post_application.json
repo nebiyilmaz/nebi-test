@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "country_code": {
+          "type": "string",
+          "example": "GB"
+        },
+        "currency_code": {
+          "type": "string",
+          "example": "GBP"
+        },
+        "language_code": {
+          "type": "string",
+          "example": "en"
+        },
+        "merchant_id": {
+          "type": "string",
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "merchant_channel_id": {
+          "type": "string",
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "merchant_finance_option_id": {
+          "type": "string",
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "merchant_api_key_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "merchant_user_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "0004f028-a485-11e9-800d-0242ac110009"
+        },
+        "finalisation_required": {
+          "type": "boolean",
+          "default": false
+        },
+        "deposit_percentage": {
+          "type": "number",
+          "default": 0
+        },
+        "deposit_amount": {
+          "type": "integer",
+          "default": 0
+        },
+        "deposit_status": {
+          "type": "string",
+          "enum": [
+            "UNPAID",
+            "UNPAID-COLLECT-MANUALLY"
+          ],
+          "default": "UNPAID"
+        },
+        "form_data": {
+          "type": "object",
+          "example": {
+            "firstName": "Lloyd",
+            "lastName": "Braun",
+            "phoneNumber": "07123456789",
+            "email": "lloyd.braun@divido.com"
+          }
+        },
+        "applicants": {
+          "type": "object"
+        },
+        "product_data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "example": {
+              "name": "Hummingbird printed sweater",
+              "quantity": 1,
+              "price": 1000
+            }
+          },
+          "default": []
+        },
+        "metadata": {
+          "type": "object",
+          "default": {}
+        },
+        "merchant_reference": {
+          "type": "string",
+          "default": "",
+          "example": "A_MERCHANT_REFERENCE"
+        },
+        "merchant_response_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "http://A_RESPONSE_URL.example.com"
+        },
+        "merchant_checkout_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "http://A_CHECKOUT_URL.example.com"
+        },
+        "merchant_redirect_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "example": "http://A_REDIRECT_URL.example.com"
+        },
+        "available_finance_options": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "0004f028-a485-11e9-800d-0242ac110009",
+            "0004f028-a485-11e9-800d-0242ac110009"
+          ]
+        }
+      },
+      "required": [
+        "country_code",
+        "merchant_id",
+        "merchant_channel_id",
+        "merchant_finance_option_id",
+        "form_data",
+        "applicants",
+        "purchase_price",
+        "product_data"
+      ]
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

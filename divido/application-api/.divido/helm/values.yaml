@@ -1,0 +1,30 @@
+name: application-api
+serviceBundledIamRole: true
+podspec:
+  hostAliases:
+  - ipAddress: "127.0.0.1"
+    hostNames:
+    - fpm
+  containers:
+    nginx:
+      image: divido/nginx
+      tag: 1.21-alpine-php
+      env:
+        DIVIDO_NGINX_CLIENT_MAX_BODY_SIZE: 10m
+      expose:
+      - name: http
+        containerPort: 80
+      type: proxy
+    fpm:
+      mountDefaultEntrypoint: true
+      image: 625359548668.dkr.ecr.eu-west-1.amazonaws.com/application-api
+      tag: v{{ RELEASE_VERSION }}
+      command:
+      - /divido_default_entrypoint.sh
+      - --check-network
+      - --config=application-api.config.json:/opt/divido/app/config.json
+      - --run-php-fpm-as-root
+      args:
+      - php-fpm
+      - -R
+      type: service

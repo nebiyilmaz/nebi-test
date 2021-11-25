@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  fpm:
+    build:
+      context: ../../
+      dockerfile: .divido/docker/fpm/Dockerfile
+      target: dev
+    # Requires to be a unique fpm container name if run with other fpm containers within the same network.
+    container_name: ${SERVICE_NAME}-fpm
+    environment:
+      - "DIVIDO_APPLICATION_ENVIRONMENT=${DIVIDO_APPLICATION_ENVIRONMENT}"
+      - "DIVIDO_SHORT_APPLICATION_ENVIRONMENT=${DIVIDO_SHORT_APPLICATION_ENVIRONMENT}"
+      - "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}"
+      - "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}"
+    volumes:
+      - ../../:/opt/divido/app
+
+  nginx:
+    image: divido/nginx:1.16-alpine-php
+    # Requires to be a unique fpm container name if run with other fpm containers within the same network.
+    container_name: ${SERVICE_NAME}-nginx
+    depends_on:
+      - fpm
+    # To allow run with microservices environment
+    environment:
+      - "DIVIDO_APPLICATION_ENVIRONMENT=${DIVIDO_APPLICATION_ENVIRONMENT}"
+      # `SERVICE_NAME` variable is required to allow this service to work with Microservices Environment
+      - "SERVICE_NAME=${SERVICE_NAME}"
+
+networks:
+  default:
+    external:
+      name: ${NETWORK}

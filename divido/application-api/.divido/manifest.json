@@ -1,0 +1,20 @@
+{
+  "name": "application-api",
+  "type": "api",
+  "owners": [
+    "anders.hallsten@divido.com"
+  ],
+  "status": "active",
+  "dependencies": {
+    "index-rate-api": "dev-master",
+    "json-fuse-api": "dev-master",
+    "lender-communication-api": "dev-master",
+    "merchant-api": "dev-master",
+    "waterfall-api": "dev-master"
+  },
+  "external_dependencies": [
+    "aws/sqs:lender-application-status",
+    "redis",
+    "mysql:platform"
+  ]
+}
