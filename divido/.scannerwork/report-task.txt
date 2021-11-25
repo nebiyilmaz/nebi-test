@@ -1,6 +1,0 @@
-projectKey=Test-PHP
-serverUrl=http://172.20.10.3:9000
-serverVersion=9.2.0.49834
-dashboardUrl=http://172.20.10.3:9000/dashboard?id=Test-PHP
-ceTaskId=AX1Hx9Vy0lIxrcIBhrdL
-ceTaskUrl=http://172.20.10.3:9000/api/ce/task?id=AX1Hx9Vy0lIxrcIBhrdL

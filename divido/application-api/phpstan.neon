@@ -1,7 +1,0 @@
-parameters:
-  level: 1
-  bootstrapFiles:
-    - constants.php
-  paths:
-    - src
-    - tests

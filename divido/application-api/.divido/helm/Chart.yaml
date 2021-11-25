@@ -1,6 +1,0 @@
-apiVersion: v2
-name: application-api
-description: Divido platform application services
-type: application
-version: {{ RELEASE_VERSION }}
-appVersion: {{ RELEASE_VERSION }}
