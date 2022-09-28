@@ -1,0 +1,146 @@
+Delivered-To: nebi.yilmaz@divido.com
+Received: by 2002:a55:9bc8:0:b0:1bb:34e0:30de with SMTP id y8csp30428egy;
+        Wed, 28 Sep 2022 03:55:57 -0700 (PDT)
+X-Google-Smtp-Source: AMsMyM4SDXHdb32zTxbRSz3W0Rb0KfB1D0ryr/PKE0fPIOtwWFbA/nQD9YRio7WLXFtERqDfFt7X
+X-Received: by 2002:a05:6000:1a8a:b0:22a:33aa:a907 with SMTP id f10-20020a0560001a8a00b0022a33aaa907mr19978030wry.322.1664362557012;
+        Wed, 28 Sep 2022 03:55:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1664362557; cv=none;
+        d=google.com; s=arc-20160816;
+        b=U0hJiGWcM7PncsYyKqkE68SHtp2PwPcmJFDNCBTaImIsV0zPDxL80TjL8GOrwTIcUp
+         ivfOhOkEOhtfL7Da/tl9FRPJqwwjc9rU4/k/aITBphLH046eGrvKuTrf0qoCAdfGDK6I
+         a6fBheRli+N28Xpk3i7hGZDBMBL9Z0Fec1d46UMX6mHN8IPdnYT+O9PK6ypsIa3xk5pr
+         UywuraXYu1RmKZP2nwztH6Wr/5SUU9NMRnS4UgA6dEIP1FhPaEsm2DqfI/sX9jTmmi06
+         KzRzTV3ic//wYge8EOATSTnLBI5V+DS44aOmlkzkOHLgIDvTasehQ7QY3WaDZjlpo6+i
+         9giA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:date:message-id:mime-version:subject:cc:to:from
+         :dkim-signature:dkim-signature;
+        bh=h4k6BG8NQeQ1QEtBRDLNfb3JsvSfNHZ9NCg06S2aqgs=;
+        b=g3hQg0CP7Nd86cyjvqbAPOU1UYJ90YFXOtnt0IMfD28sH2eO3qAZ12kzFhBQg3JG3Q
+         MKcuDNAHYu2v5nZ48DI5l2/Vhhe8obHJX0spa+snrshwHNJhnpFWBTQ9ix+Sj+GrrJxb
+         qLydBm7rGcdvaJ52ikc8h6zdRgO18QbbXCL1b/mkEXDHMZcpto6DTzbucwk364trhkwe
+         0s3mXzvciqoHfJDjxVDQhhCh1JLWxZxyXcYZZTuTUw62YjDOHdWu/HBENHFocHziJqo9
+         n4zY3+GNQNyy0wtWswiLLbozyiRj26jwV7ICy2UA+ib/qnTLbfrWwskgTcXm3vVMgZsf
+         R4QQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@dividopay.co.uk header.s=6xl53l2mrufvmq3c4m2iiwpsecw5626l header.b=LyxdsRe0;
+       dkim=pass header.i=@amazonses.com header.s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn header.b=X7L2Ir36;
+       spf=pass (google.com: domain of 0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@mail.dividopay.co.uk designates 54.240.7.13 as permitted sender) smtp.mailfrom=0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@mail.dividopay.co.uk;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dividopay.co.uk
+Return-Path: <0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@mail.dividopay.co.uk>
+Received: from a7-13.smtp-out.eu-west-1.amazonses.com (a7-13.smtp-out.eu-west-1.amazonses.com. [54.240.7.13])
+        by mx.google.com with ESMTPS id y14-20020a056000168e00b0022a5613bf64si1875112wrd.589.2022.09.28.03.55.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 28 Sep 2022 03:55:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@mail.dividopay.co.uk designates 54.240.7.13 as permitted sender) client-ip=54.240.7.13;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@dividopay.co.uk header.s=6xl53l2mrufvmq3c4m2iiwpsecw5626l header.b=LyxdsRe0;
+       dkim=pass header.i=@amazonses.com header.s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn header.b=X7L2Ir36;
+       spf=pass (google.com: domain of 0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@mail.dividopay.co.uk designates 54.240.7.13 as permitted sender) smtp.mailfrom=0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@mail.dividopay.co.uk;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=dividopay.co.uk
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6xl53l2mrufvmq3c4m2iiwpsecw5626l; d=dividopay.co.uk;
+	t=1664362555;
+	h=From:To:Cc:Subject:MIME-Version:Content-Type:Message-ID:Date;
+	bh=F/mswwbKYItShrT4wM8iBjkCicHdPKMvWXKGCdFJahg=;
+	b=LyxdsRe0vN4xbCnFLCGiI+7GAotN4orvhvVJR5JD87DLVnWOKVzG8SPNynTxmnze
+	uo6/cjJ511kgKvBtwHaRqjL3KYyqcrRpM2jUN2VecRwq9WvjUSZNZ7mDfF3i2EzJINv
+	3OD/eKcMeKfuCU5dEhCB1iyQcJ8p//ckCtVQuqC963xtqqt+X7wbc/XNJaVYSzsYvAJ
+	VZQV7SHEhCsglEWLYB7dvyIuFDlkdySW9lBlTHxZcAfKHbNMTh5MWzDYjGd2vVVM9bG
+	GF0uJGLDtFXw7Wg4FeTtA6SgrKYMxyeHTfJVX322+cWNkj3ovcPR3g1OVpXv+U85sOd
+	ATJElZZXpw==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ihchhvubuqgjsxyuhssfvqohv7z3u4hn; d=amazonses.com; t=1664362555;
+	h=From:To:Cc:Subject:MIME-Version:Content-Type:Message-ID:Date:Feedback-ID;
+	bh=F/mswwbKYItShrT4wM8iBjkCicHdPKMvWXKGCdFJahg=;
+	b=X7L2Ir3610D7b2DEssuuPbvCd4q33WhlAjxhnJt27UM6v8KbeWR84YrQHGiUMHBU
+	I6nUAVvnMvQ6qiIiu3jYRWCTqrKY9d4bdj1mMtjSHD8tQ+XlmbXJL6tHjFvCyeuCTBe
+	7JEcwQoSjqG8kjVF9Pw53aHkftVi9R00s4IZjbME=
+From: no-reply@dividopay.co.uk
+To: alastair.jones@divido.com, charles.prynn@divido.com, 
+	nebi.yilmaz@divido.com
+Cc: john.newman@divido.com, olakunle.abiola@divido.com
+Subject: MandS Prod Email Verification issue!
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_222002_51717290.1664362554557"
+Message-ID: <0102018383bd24b9-82c54e20-b262-412c-b15c-c1a616a408be-000000@eu-west-1.amazonses.com>
+Date: Wed, 28 Sep 2022 10:55:54 +0000
+Feedback-ID: 1.eu-west-1.qJJjGf3gDgFBCbsFd+JwnucTVt8peJKC0i8ZFqNbodw=:AmazonSES
+X-SES-Outgoing: 2022.09.28-54.240.7.13
+
+------=_Part_222002_51717290.1664362554557
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi All,
+
+Welcome one and all to the wonderful world of the Email Verification issue for MandS.
+
+If you download and view the EML and/or view Original message this message should Pass SPF, DKIM, and even DMARC checks.
+
+N.B. DMARC checks are not even performed on the Mands PBD email address, which is not marked as dangerous.
+
+However, our Gmail still reports is email as dangerous.
+
+I've checked this email using the following sites and they all report that the email is verified and ok: -
+
+    - mxtoolbox.com
+    - proofpoint.com
+    - dmarcian.com
+
+Site mail-tester.com even reported 10/10 for this email address.
+
+Q1. Is there anything on our Gmail that would report this email as dangerous? If I send this to a private email it's not marked as dangerous.
+Q2. Can people double check the DNS settings for the email/domain?
+Q3. I've create Slack thread in chat #mands-uat-testing with message New Email Address Issue Thread. Can people report there findings here as this email is from a no reply address?
+
+This issue is blocking the sending of MandS email from the Lender Portal and Report Jobs in MandS Production.
+
+Thanks in advance,
+John Paul
+
+------=_Part_222002_51717290.1664362554557
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<head></head>
+<body>
+Hi All,
+<br /><br />
+Welcome one and all to the wonderful world of the Email Verification issue for MandS.
+<br /><br />
+If you download and view the EML and/or view Original message this message should Pass SPF, DKIM, and even DMARC checks.
+<br /><br />
+<b>N.B.</b> DMARC checks are not even performed on the Mands PBD email address, which is not marked as dangerous.
+<br /><br />
+However, our Gmail still reports is email as dangerous.
+<br /><br />
+I've checked this email using the following sites and they all report that the email is verified and ok: -
+
+<ul>
+    <li>mxtoolbox.com</li>
+    <li>proofpoint.com</li>
+    <li>dmarcian.com</li>
+</ul>
+
+Site <code>mail-tester.com</code> even reported 10/10 for this email address.
+
+<br /><br />
+
+<b>Q1.</b> Is there anything on our Gmail that would report this email as dangerous? If I send this to a private email it's not marked as dangerous.<br />
+<b>Q2.</b> Can people double check the DNS settings for the email/domain?<br />
+<b>Q3.</b> I've create Slack thread in chat <code>#mands-uat-testing</code> with message <code>New Email Address Issue Thread</code>. Can people report there findings here as this email is from a no reply address?<br />
+
+<br />
+
+This issue is blocking the sending of MandS email from the Lender Portal and Report Jobs in MandS Production.
+
+<br /><br />
+
+Thanks in advance,<br />
+John Paul
+</body>
+
+------=_Part_222002_51717290.1664362554557--
